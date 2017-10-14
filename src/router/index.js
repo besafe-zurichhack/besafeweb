@@ -4,6 +4,7 @@ import Hello from '@/components/Hello'
 import Login from '@/components/Login'
 import UserProfile from '@/components/UserProfile'
 import UserList from '@/components/UsersList'
+import UserTracks from '@/components/UserTracks'
 import Dashboard from '@/components/Dashboard'
 
 Vue.use(Router)
@@ -34,6 +35,11 @@ export default new Router({
       path: '/users/:id',
       name: 'userProfile',
       component: UserProfile
+    },
+    {
+      path: '/users/:id/tracks',
+      name: 'userTracks',
+      component: UserTracks
     }
   ]
 })
