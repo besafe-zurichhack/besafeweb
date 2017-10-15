@@ -1,7 +1,22 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <el-row class="tac">
+    <el-col :span="4">
+      <el-menu default-active="1" class="el-menu-vertical-demo" >
+      <!-- <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"> -->
+        <el-menu-item index="1">
+          <router-link tag="i" class="el-icon-menu" :to="{ name: 'hello', params: {} }"></router-link>Hello
+        </el-menu-item>
+        <el-menu-item index="2">
+          <router-link tag="i" class="el-icon-menu" :to="{ name: 'dashboard', params: {} }"></router-link>Home
+        </el-menu-item>
+        <el-menu-item index="3">
+          <router-link tag="i" class="el-icon-menu" :to="{ name: 'users', params: {} }"></router-link> Users
+        </el-menu-item>
+      </el-menu>
+    </el-col>
+    <router-view :span="20"> </router-view>
+  </el-row>
   </div>
 </template>
 
@@ -30,6 +45,16 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 0;
+  /*margin-top: 60px;*/
+}
+
+body {
+  margin: 0;
+}
+
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 1000px;
 }
 </style>
