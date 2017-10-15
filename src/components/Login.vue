@@ -1,5 +1,5 @@
 <template lang="html">
-  <el-col :span="24">
+  <el-col :span="20">
     <el-col :span="6" :offset="9">
       <el-form ref="form">
       <el-form-item >

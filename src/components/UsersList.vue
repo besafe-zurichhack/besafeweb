@@ -1,6 +1,24 @@
 <template lang="html">
-  <div class="container">
+  <div class="container" :span="18">
     <h1>User List</h1>
+      <el-table
+      :data="users"
+      style="width: 100%">
+      <el-table-column
+        prop="fName"
+        label="Name"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="email"
+        label="Email"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="phone"
+        label="Phone">
+      </el-table-column>
+    </el-table>
     <table>
       <thead>
         <tr>
