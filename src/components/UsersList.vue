@@ -1,61 +1,38 @@
 <template lang="html">
-  <div class="container" :span="18">
+  <el-col :span="16">
+  <div class="">
     <h1>User List</h1>
       <el-table
+      :span="5"
       :data="users"
+      empty-text="No data available"
       style="width: 100%">
       <el-table-column
         prop="fName"
         label="Name"
-        width="180">
+        width="">
       </el-table-column>
       <el-table-column
         prop="email"
         label="Email"
-        width="180">
+        width="">
       </el-table-column>
       <el-table-column
         prop="phone"
         label="Phone">
       </el-table-column>
+      <el-table-column
+        fixed="right"
+        label="Actions">
+        <template scope="scope">
+          <el-button @click="goTravel(scope)" type="text" size="small">Travels</el-button>
+          <el-button @click="goProfile(scope)"type="text" size="small">Profile</el-button>
+        </template>
+      </el-table-column>
     </el-table>
-    <table>
-      <thead>
-        <tr>
-          <th>
-            Name
-          </th>
-          <th>
-            Email
-          </th>
-          <th>
-            Phone
-          </th>
-          <th>
-            Travels
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="user in users">
-          <td>
-            {{user.fName}}  {{user.sName}}
-          </td>
-          <td>
-            {{user.email}}
-          </td>
-          <td>
-            {{user.phone}}
-          </td>
-          <td>
-            <button>See travels</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
   </div>
+  </el-col>
 </template>
-
 <script>
 import firebase from 'firebase'
 
@@ -64,6 +41,14 @@ export default {
   name: 'app',
   firebase: {
     users: db.ref('users')
+  },
+  methods: {
+    goTravel (scope) {
+      this.$router.push({name: 'userTracks', params: {id: scope.row['.key']}})
+    },
+    goProfile (scope) {
+      this.$router.push({name: 'userProfile', params: {id: scope.row['.key']}})
+    }
   }
 }
 </script>

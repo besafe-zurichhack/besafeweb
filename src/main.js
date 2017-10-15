@@ -6,12 +6,23 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
-
-Vue.use(ElementUI)
-
-Vue.use(VueFire)
+var googleMapsClient = require('@google/maps').createClient({
+  key: 'AIzaSyBReCymPX_XOfraeYKpls-PnI6B8kcfV6o'
+})
 
 Vue.config.productionTip = false
+
+Vue.use(ElementUI)
+Vue.use(VueFire)
+// Geocode an address.
+googleMapsClient.geocode({
+  address: '1600 Amphitheatre Parkway, Mountain View, CA'
+}, function (err, response) {
+  if (!err) {
+    console.log(response.json.results)
+  }
+  console.log('Error ', err)
+})
 
 /* eslint-disable no-new */
 new Vue({
