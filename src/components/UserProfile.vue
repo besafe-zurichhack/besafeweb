@@ -1,14 +1,23 @@
 <template lang="html">
-  <div class="card">
-    <img  :src="mappedUser.porfilePic" align="center" height="200">
-    <h1>{{mappedUser.fName}} {{mappedUser.sName}}</h1>
-    <p>{{mappedUser.email}}</p>
-    <p>{{mappedUser.phone}}</p>
-    <el-table
-    :data="mappedTravels">
-    {{data}}
-  </el-table>
-  </div>
+  <el-row>
+    <el-col :span="6" :offset="9" style="margin-top: 40px">
+      <el-card :body-style="{ padding: '50px' }"  :span="2">
+        <img  :src="mappedUser.porfilePic" align="center" height="200" class="image img-circle">
+        <div style="padding: 14px;">
+          <div class="bottom clearfix">
+            <h1>{{mappedUser.fName}} {{mappedUser.sName}}</h1>
+            <p>{{mappedUser.email}}</p>
+            <p>{{mappedUser.phone}}</p>
+            <span style="margin: 5px" v-for="t in tags">
+              <el-tag :type="t.type">
+                {{t.text}}
+              </el-tag>
+            </span>
+          </div>
+        </div>
+      </el-card>
+    </el-col>
+  </el-row>
 </template>
 
 <script>
@@ -25,6 +34,24 @@ export default {
     return {
       user: db.ref('users/' + this.userId),
       travels: db.ref('travels/' + this.userId)
+    }
+  },
+  data () {
+    return {
+      tags: [
+        {
+          type: 'success',
+          text: 'calm'
+        },
+        {
+          type: 'warning',
+          text: 'undecided'
+        },
+        {
+          type: 'info',
+          text: 'occasional driver'
+        }
+      ]
     }
   },
   computed: {
@@ -51,4 +78,7 @@ export default {
 </script>
 
 <style lang="css">
+.img-circle {
+    border-radius: 50%;
+}
 </style>

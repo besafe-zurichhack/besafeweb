@@ -2,12 +2,11 @@
   <el-col :span="18" :offset="3">
   <h1>From {{moment(mappedTravel.startTime).format('HH:mm:ss DD/MM/YY')}} to {{moment(mappedTravel.endTime).format('HH:mm:ss DD/MM/YY')}} </h1>
 
-      <gmap-map
+  <el-row type="flex" class="row-bg" justify="center">
+    <gmap-map
       :center="center"
       :zoom="7"
-      :span="15"
-      style="width: 500px; height: 300px"
-      >
+      style="width: 500px; height: 300px">
       <gmap-marker
       :key="index"
       v-for="(m, index) in mappedTravel.checkPoints"
@@ -16,7 +15,7 @@
       @click="center={lat: m.latitude, lng:m.longitude}"
       ></gmap-marker>
     </gmap-map>
-
+  </el-row>
     <el-table
     :data="mappedTravel.checkPoints"
     empty-text="No data available"
