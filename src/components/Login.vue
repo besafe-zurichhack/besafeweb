@@ -6,7 +6,7 @@
         <el-input placeholder="Email" v-model="email"></el-input>
       </el-form-item>
       <el-form-item >
-        <el-input placeholder="Password" v-model="password"></el-input>
+        <el-input type="password" placeholder="Password" v-model="password"></el-input>
       </el-form-item>
       <el-button type="primary" size="large" @click="doLogin()">Login</el-button>
     </el-form>
@@ -24,7 +24,11 @@ export default {
   },
   methods: {
     doLogin () {
-      this.$router.push({name: 'dashboard'})
+      if (this.email === 'admin@admin.com' && this.password === 'adminadmin') {
+        this.$router.push({name: 'dashboard'})
+      } else {
+        alert('Incorrect username or password!')
+      }
     }
   }
 }
