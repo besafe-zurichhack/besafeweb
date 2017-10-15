@@ -23,6 +23,13 @@ Vue.use(VueGoogleMaps, {
   }
 })
 
+// var Highcharts = require('highcharts')
+// console.log('Highcharts', Highcharts)
+// Load module after Highcharts is loaded
+// require('highcharts/modules/exporting')(Highcharts);
+
+// Create the chart
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

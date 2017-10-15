@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <el-row class="tac">
-      <el-menu theme="light" router="true" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+      <el-menu theme="light" router="true" class="el-menu-demo" mode="horizontal">
         <router-link :index="1" tag="el-menu-item" class="active" :to="{ name: 'dashboard', params: {} }">
           <img :src="bg" width="48px">
         </router-link>
