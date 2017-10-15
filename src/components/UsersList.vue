@@ -42,7 +42,6 @@ import firebase from 'firebase'
 
 let db = firebase.database()
 export default {
-  name: 'app',
   firebase: {
     users: db.ref('users')
   },

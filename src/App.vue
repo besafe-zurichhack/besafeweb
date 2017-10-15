@@ -1,28 +1,14 @@
 <template>
   <div id="app">
     <el-row class="tac">
-      <el-menu theme="light" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+      <el-menu theme="light" router="true" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
         <router-link :index="1" tag="el-menu-item" class="active" :to="{ name: 'dashboard', params: {} }">
           <img :src="bg" width="48px">
         </router-link>
 
-        <router-link :index="1" tag="el-menu-item" class="active" :to="{ name: 'dashboard', params: {} }"><i class="el-icon-menu"></i>Home</router-link>
-        <router-link :index="2" tag="el-menu-item" class="active"  :to="{ name: 'users', params: {} }"><i  class="el-icon-menu"></i>Users</router-link>
-        <!-- <el-menu-item index="1">Processing Center</el-menu-item>
-        <el-submenu index="2">
-          <template slot="title">Workspace</template>
-          <el-menu-item index="2-1">item one</el-menu-item>
-          <el-menu-item index="2-2">item two</el-menu-item>
-          <el-menu-item index="2-3">item three</el-menu-item>
-        </el-submenu>
-        <el-menu-item index="3"><a href="https://www.ele.me" target="_blank">Orders</a></el-menu-item> -->
+        <router-link index="/dash" tag="el-menu-item" class="active" :to="{ name: 'dashboard', params: {} }"><i class="el-icon-menu"></i>Dashboard</router-link>
+        <router-link index="/users" tag="el-menu-item" class="active"  :to="{ name: 'users', params: {} }"><i  class="el-icon-menu"></i>Users</router-link>
       </el-menu>
-
-    <!-- <el-col :span="4">
-      <el-menu  class="el-menu-vertical-demo" >
-
-      </el-menu>
-    </el-col> -->
     <router-view :span="24"> </router-view>
   </el-row>
   </div>

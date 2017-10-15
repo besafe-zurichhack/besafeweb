@@ -211,7 +211,7 @@ export default {
   },
   computed: {
     userId () {
-      return this.$route.params.idf
+      return this.$route.params.id
     },
     mappedTravels () {
       return this.travels.map(it => {

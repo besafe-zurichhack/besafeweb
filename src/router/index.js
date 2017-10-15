@@ -17,6 +17,7 @@ export default new Router({
       name: 'dashboard',
       component: Dashboard
     },
+    { path: '/', redirect: '/login' },
     {
       path: '/login',
       name: 'login',
