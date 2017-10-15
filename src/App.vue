@@ -1,27 +1,37 @@
 <template>
   <div id="app">
     <el-row class="tac">
-    <el-col :span="4">
-      <el-menu default-active="1" class="el-menu-vertical-demo" >
-      <!-- <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"> -->
-        <el-menu-item index="1">
-          <router-link tag="i" class="el-icon-menu" :to="{ name: 'hello', params: {} }"></router-link>Hello
-        </el-menu-item>
-        <el-menu-item index="2">
-          <router-link tag="i" class="el-icon-menu" :to="{ name: 'dashboard', params: {} }"></router-link>Home
-        </el-menu-item>
-        <el-menu-item index="3">
-          <router-link tag="i" class="el-icon-menu" :to="{ name: 'users', params: {} }"></router-link> Users
-        </el-menu-item>
+      <el-menu theme="light" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+        <router-link :index="1" tag="el-menu-item" class="active" :to="{ name: 'dashboard', params: {} }">
+          <img :src="bg" width="48px">
+        </router-link>
+
+        <router-link :index="1" tag="el-menu-item" class="active" :to="{ name: 'dashboard', params: {} }"><i class="el-icon-menu"></i>Home</router-link>
+        <router-link :index="2" tag="el-menu-item" class="active"  :to="{ name: 'users', params: {} }"><i  class="el-icon-menu"></i>Users</router-link>
+        <!-- <el-menu-item index="1">Processing Center</el-menu-item>
+        <el-submenu index="2">
+          <template slot="title">Workspace</template>
+          <el-menu-item index="2-1">item one</el-menu-item>
+          <el-menu-item index="2-2">item two</el-menu-item>
+          <el-menu-item index="2-3">item three</el-menu-item>
+        </el-submenu>
+        <el-menu-item index="3"><a href="https://www.ele.me" target="_blank">Orders</a></el-menu-item> -->
       </el-menu>
-    </el-col>
-    <router-view :span="20"> </router-view>
+
+    <!-- <el-col :span="4">
+      <el-menu  class="el-menu-vertical-demo" >
+
+      </el-menu>
+    </el-col> -->
+    <router-view :span="24"> </router-view>
   </el-row>
   </div>
 </template>
 
 <script>
 import Firebase from 'firebase'
+const img = require('@/assets/zurich.png')
+
 let config = {
   apiKey: 'AIzaSyAb4UU0QiTKOyIonjQpM7O87cexpcKprjA',
   authDomain: 'zurich-707e5.firebaseapp.com',
@@ -34,7 +44,12 @@ let config = {
 Firebase.initializeApp(config)
 
 export default {
-  name: 'app'
+  name: 'app',
+  data () {
+    return {
+      bg: img
+    }
+  }
 }
 </script>
 

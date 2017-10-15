@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
 import Login from '@/components/Login'
 import UserProfile from '@/components/UserProfile'
 import UserList from '@/components/UsersList'
 import UserTracks from '@/components/UserTracks'
+import SingleTrack from '@/components/SingleTrack'
 import Dashboard from '@/components/Dashboard'
 
 Vue.use(Router)
@@ -12,11 +12,6 @@ Vue.use(Router)
 export default new Router({
   mode: 'history',
   routes: [
-    {
-      path: '/',
-      name: 'hello',
-      component: Hello
-    },
     {
       path: '/dash',
       name: 'dashboard',
@@ -41,6 +36,11 @@ export default new Router({
       path: '/users/:id/tracks',
       name: 'userTracks',
       component: UserTracks
+    },
+    {
+      path: '/users/:id/tracks/:trackId',
+      name: 'singleTrack',
+      component: SingleTrack
     }
   ]
 })

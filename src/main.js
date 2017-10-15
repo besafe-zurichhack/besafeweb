@@ -6,22 +6,21 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
-var googleMapsClient = require('@google/maps').createClient({
-  key: 'AIzaSyBReCymPX_XOfraeYKpls-PnI6B8kcfV6o'
-})
+import * as VueGoogleMaps from 'vue2-google-maps'
+// import '@/theme/index.css'
 
 Vue.config.productionTip = false
-
 Vue.use(ElementUI)
 Vue.use(VueFire)
-// Geocode an address.
-googleMapsClient.geocode({
-  address: '1600 Amphitheatre Parkway, Mountain View, CA'
-}, function (err, response) {
-  if (!err) {
-    console.log(response.json.results)
+
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyBReCymPX_XOfraeYKpls-PnI6B8kcfV6o',
+    libraries: 'places' // This is required if you use the Autocomplete plugin
+    // OR: libraries: 'places,drawing'
+    // OR: libraries: 'places,drawing,visualization'
+    // (as you require)
   }
-  console.log('Error ', err)
 })
 
 /* eslint-disable no-new */
